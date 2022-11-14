@@ -1,6 +1,6 @@
 {
-  "name": "good-patient",
-  "version": "0.1.4",
+  "name": "muidicine",
+  "version": "0.1.5",
   "scripts": {
     "dev:vite": "vite",
     "dev:sw": "esbuild sw/count-down.ts --outfile=public/count-down.js --watch --tsconfig=tsconfig.sw.json",
@@ -8,24 +8,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.9.1",
-    "esbuild": "^0.15.6",
+    "bootstrap-icons": "^1.10.2",
+    "daisyui": "^2.40.1",
     "lodash": "^4.17.21",
-    "pinia": "^2.0.21",
-    "tailwindcss": "^3.1.8",
-    "vue": "^3.2.38",
-    "vue-router": "^4.1.5"
+    "pinia": "^2.0.23",
+    "tailwindcss": "^3.2.4",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.184",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
+    "@types/lodash": "^4.14.188",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "autoprefixer": "^10.4.13",
+    "esbuild": "^0.15.13",
+    "postcss": "^8.4.19",
     "pug": "^3.0.2",
     "stylus": "^0.59.0",
-    "typescript": "^4.8.2",
-    "vite": "^3.0.9",
-    "vite-plugin-pwa": "^0.12.4",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.3",
+    "vite-plugin-pwa": "^0.13.3",
     "workbox-window": "^6.5.4"
   }
 }
