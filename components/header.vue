@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import {onBeforeUnmount, ref, toRefs} from "vue";
-import type {Menu} from "@/types";
+import { onBeforeUnmount, ref, toRefs } from 'vue';
+import type { Menu } from '@/types';
 
 interface Props {
   menu?: Menu[];
@@ -11,12 +11,14 @@ const props = withDefaults(defineProps<Props>(), {
 });
 const { title, menu } = toRefs(props);
 const emit = defineEmits<{
-  (e:'click-menu', command:string | number):void;
+  (e: 'click-menu', command: string | number): void;
 }>();
 const isOpen = ref<boolean>(false);
 const menuEl = ref<HTMLDivElement>();
 
-window.addEventListener('click', onBodyCLick);
+onMounted(() => {
+  window.addEventListener('click', onBodyCLick);
+});
 
 onBeforeUnmount(() => {
   window.removeEventListener('click', onBodyCLick);
@@ -36,14 +38,14 @@ function doClickMenu(item: Menu): void {
 <script lang="ts">
 export default {
   name: 'AppHeader',
-}
+};
 </script>
 
 <template lang="pug">
 header.flex.border-b.items-center.px-4.py-2.bg-gray-100.shadow-md.sticky.w-full.top-0.z-10
   router-link.text-blue-500.text-sm.w-8(
     class="hover:text-blue-600"
-    :to="{name: 'home'}"
+    to="/"
   )
     i.bi.bi-chevron-left
 

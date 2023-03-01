@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type {Medicine, Menu} from '@/types';
-import {MedicineType, MenuCommand} from '@/types';
+import type { Medicine, Menu } from '@/types';
+import { MedicineType, MenuCommand } from '@/types';
 import AppHeader from '@/components/header.vue';
-import {useMedicineStore} from "@/store";
+import { useMedicineStore } from '@/store';
 
 const medicineStore = useMedicineStore();
 
@@ -74,7 +74,7 @@ app-header(
 
 router-link.block.bg-blue-600.text-white.text-lg.rounded.h-12.leading-12.text-center.mx-4(
   class="hover:bg-blue-500"
-  :to="{name: 'add'}"
+  to="/add"
 )
   i.bi.bi-plus-lg.mr-1
   | 添加药物
