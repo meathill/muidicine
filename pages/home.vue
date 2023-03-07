@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {useMedicineStore} from "@/store";
+import { useMedicineStore } from '@/store';
 
 const store = useMedicineStore();
 </script>
@@ -7,13 +7,13 @@ const store = useMedicineStore();
 <script lang="ts">
 export default {
   name: 'AppHome',
-}
+};
 </script>
 
 <template lang="pug">
 .flex.flex-col.justify-center.items-center.h-full
   router-link(
-    :to="{name: 'about'}"
+    to="/about"
   )
     figure
       img.w-44.h-44.rounded-full.drop-shadow(src="/icons/icon-512x512.png")
@@ -21,12 +21,12 @@ export default {
 
   router-link.w-44.h-12.leading-12.bg-blue-500.text-white.rounded.mb-3.text-center(
     class="hover:bg-blue-600"
-    :to="{name: 'add'}"
+    to="/add"
   ) 💊 添加药物
 
   router-link.w-44.h-12.leading-12.bg-green-500.text-white.rounded.mb-3.flex.justify-center.items-center(
     class="hover:bg-green-600"
-    :to="{name: 'list'}"
+    to="/medicines"
   )
     .mr-1.bg-white.rounded-sm.w-4.h-4.text-green-500.text-xs.text-center.font-bold {{store.total}}
     | 正在用药
