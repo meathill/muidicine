@@ -18,7 +18,6 @@ export default defineNuxtConfig({
     ],
     '@pinia-plugin-persistedstate/nuxt',
   ],
-  // @ts-ignore
   pwa: {
     registerType: 'autoUpdate',
     manifest: {

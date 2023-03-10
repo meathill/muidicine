@@ -4,7 +4,7 @@ specifiers:
   '@pinia-plugin-persistedstate/nuxt': ^1.0.0
   '@pinia/nuxt': ^0.4.6
   '@types/lodash': ^4.14.191
-  '@vite-pwa/nuxt': ^0.0.6
+  '@vite-pwa/nuxt': ^0.0.7
   bootstrap-icons: ^1.10.2
   daisyui: ^2.51.2
   esbuild: ^0.15.13
@@ -28,7 +28,7 @@ devDependencies:
   '@pinia-plugin-persistedstate/nuxt': 1.0.0_2fa6k6uov4i2t7fhwaa7f3r2li
   '@pinia/nuxt': 0.4.7
   '@types/lodash': 4.14.191
-  '@vite-pwa/nuxt': 0.0.6
+  '@vite-pwa/nuxt': 0.0.7
   nuxt: 3.2.3_stylus@0.59.0
   postcss: 8.4.21
   pug: 3.0.2
@@ -2657,8 +2657,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vite-pwa/nuxt/0.0.6:
-    resolution: {integrity: sha512-TxIBNz8tBvirHFr3zLXEbWSFDQl1CBsyc+gegD6eVpT4fbMBb3i8Gzzqh6gTssVB+nB/zOXK/ZN1mGZysFPevQ==}
+  /@vite-pwa/nuxt/0.0.7:
+    resolution: {integrity: sha512-7bUTHbameF4GMLQjuyICB761YTC2/Zp6s+rd3hz63Q8lUHP/WUkvOhkoqAoA7CrRPrM85QDeOJKBEvailDb5+w==}
     dependencies:
       '@nuxt/kit': 3.2.3
       vite-plugin-pwa: 0.14.4
