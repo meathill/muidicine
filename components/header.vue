@@ -45,7 +45,7 @@ export default {
 header.flex.border-b.items-center.px-4.py-2.bg-gray-100.shadow-md.sticky.w-full.top-0.z-10
   router-link.text-blue-500.text-sm.w-8(
     class="hover:text-blue-600"
-    to="/"
+    :to="{name: 'home'}"
   )
     i.bi.bi-chevron-left
 
