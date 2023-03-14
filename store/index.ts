@@ -3,25 +3,25 @@ import {computed, ref} from "vue";
 import find from 'lodash/find';
 import {Medicine} from "@/types";
 import type {LocalStore} from "@/store/types";
-import {version} from '../../package.json';
+import {version} from '../package.json';
 import {diffMinutes} from "@/utils";
 
 const STORE_KEY = 'mui-medicine';
 
 let store: LocalStore;
-const local = localStorage.getItem(STORE_KEY);
-if (local) {
-  store = JSON.parse(local);
-  // TODO 将来要处理不同版本的存储数据结构
-  store.version = version;
-} else {
+// const local = localStorage.getItem(STORE_KEY);
+// if (local) {
+//   store = JSON.parse(local);
+//   // TODO 将来要处理不同版本的存储数据结构
+//   store.version = version;
+// } else {
   store = {
     version,
     medicines: {},
     config: {},
     lastId: 1,
   };
-}
+// }
 
 export const useMedicineStore = defineStore('medicine', () => {
   const data = store.medicines;

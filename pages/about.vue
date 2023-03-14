@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import AppHeader from '@/components/header.vue';
-import {version} from '../../package.json';
+import {version} from '../package.json';
 </script>
 
 <script lang="ts">
