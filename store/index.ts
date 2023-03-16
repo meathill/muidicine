@@ -9,6 +9,8 @@ import {diffMinutes} from "@/utils";
 const STORE_KEY = 'mui-medicine';
 
 let store: LocalStore;
+
+// TODO 在服务端环境中，没有localStorage，无法从localStorage中取出数据，从而初始化store，需要更改方案
 // const local = localStorage.getItem(STORE_KEY);
 // if (local) {
 //   store = JSON.parse(local);

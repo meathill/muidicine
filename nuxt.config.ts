@@ -1,6 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: '姆伊用药助手',
+      meta: [
+        { charset: 'UTF-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+        { 'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8' },
+        { name: 'description', content: '科学吃药，可以让药效发挥更好，副作用更少。慢性病患者献给病友的小应用。' },
+        { name: 'msapplication-TileColor', content: '#ffe4b0' },
+        { name: 'theme-color', content: '#ffe4b0' },
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/icons/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/icons/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icons/favicon-16x16.png' },
+        { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css' },
+      ],
+    },
+  },
   css: ['@/assets/css/index.css', '@/style/layout.styl', '@/style/icon.styl'],
   postcss: {
     plugins: {
