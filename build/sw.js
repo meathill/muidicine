@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const esbuild = require('esbuild');
-const {resolve} = require('path');
+const { resolve } = require('path');
 
 console.log('count-down.js started');
 (async () => {

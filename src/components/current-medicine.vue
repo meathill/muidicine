@@ -1,27 +1,27 @@
 <script lang="ts" setup>
-import type {Medicine} from "@/types";
-import {DosageUnitLabel} from "@/data";
-import {toRefs} from "vue";
-import {checkPermission, sendMessageAfter} from "@/service/notification";
+import type { Medicine } from '@/types';
+import { DosageUnitLabel } from '@/data';
+import { toRefs } from 'vue';
+import { checkPermission, sendMessageAfter } from '@/service/notification';
 
 type Props = {
   medicine: Medicine;
-}
+};
 
 const props = defineProps<Props>();
 const emit = defineEmits<{
   (e: 'dismiss'): void;
   (e: 'count-down', medicine: Medicine): void;
-}>()
-const {medicine} = toRefs(props);
+}>();
+const { medicine } = toRefs(props);
 
 async function doCountDown() {
   if (!(await checkPermission())) {
     alert('请允许通知权限');
   }
-  const {delay} = medicine.value;
+  const { delay } = medicine.value;
   if (delay) {
-    const {name, dosage, dosageUnit} = medicine.value;
+    const { name, dosage, dosageUnit } = medicine.value;
     const content = `${name} x${dosage}${DosageUnitLabel[dosageUnit]}`;
     sendMessageAfter(delay * 60, '该吃药了 💊', content);
   }

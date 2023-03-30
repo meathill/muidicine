@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import {onBeforeUnmount, ref, toRefs} from "vue";
-import type {Menu} from "@/types";
+import { onBeforeUnmount, ref, toRefs } from 'vue';
+import type { Menu } from '@/types';
 
 interface Props {
   menu?: Menu[];
@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 const { title, menu } = toRefs(props);
 const emit = defineEmits<{
-  (e:'click-menu', command:string | number):void;
+  (e: 'click-menu', command: string | number): void;
 }>();
 const isOpen = ref<boolean>(false);
 const menuEl = ref<HTMLDivElement>();
@@ -36,7 +36,7 @@ function doClickMenu(item: Menu): void {
 <script lang="ts">
 export default {
   name: 'AppHeader',
-}
+};
 </script>
 
 <template lang="pug">

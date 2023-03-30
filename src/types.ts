@@ -13,11 +13,11 @@ export interface Medicine {
   // 药品名称
   name: string;
   // 用药类型
-  type: MedicineType | '',
+  type: MedicineType | '';
   // 剂量
   dosage: string;
   // 剂量单位
-  dosageUnit: DosageUnit,
+  dosageUnit: DosageUnit;
   // 延迟时间，比如餐后
   delay?: number;
   // 频率
@@ -27,7 +27,7 @@ export interface Medicine {
   // 结束吃的时间
   endDate: string;
   // 每餐的最后提醒时间
-  meals?: string[],
+  meals?: string[];
   // 备注
   note: string;
   // 启动提示
@@ -38,7 +38,7 @@ export type Menu = {
   label: string;
   command: string | number;
   params?: unknown;
-}
+};
 
 export enum MenuCommand {
   Import,

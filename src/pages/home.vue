@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {useMedicineStore} from "@/store";
+import { useMedicineStore } from '@/store';
 
 const store = useMedicineStore();
 </script>
@@ -7,7 +7,7 @@ const store = useMedicineStore();
 <script lang="ts">
 export default {
   name: 'AppHome',
-}
+};
 </script>
 
 <template lang="pug">

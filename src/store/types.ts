@@ -1,4 +1,4 @@
-import type {Medicine} from "@/types";
+import type { Medicine } from '@/types';
 
 export interface LocalStore {
   version: string;
