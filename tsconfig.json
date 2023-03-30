@@ -14,14 +14,9 @@
     "skipLibCheck": true,
     "allowJs": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "types": [
-      "vite/client",
-      "vite-plugin-pwa/client"
-    ]
+    "types": ["vite/client", "vite-plugin-pwa/client"]
   },
   "include": [
     "src/**/*.ts",

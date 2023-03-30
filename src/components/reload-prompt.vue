@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import { useRegisterSW } from 'virtual:pwa-register/vue'
-import {ref} from "vue";
+import { useRegisterSW } from 'virtual:pwa-register/vue';
+import { ref } from 'vue';
 import SpinnerIcon from '@/components/spinner.vue';
 
-const {
-  offlineReady,
-  needRefresh,
-  updateServiceWorker,
-} = useRegisterSW({
+const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
   immediate: true,
   onRegistered(r) {
-    r && setInterval(async () => {
-      await r.update();
-    }, 60 * 60 * 1000);
-  }
+    r &&
+      setInterval(async () => {
+        await r.update();
+      }, 60 * 60 * 1000);
+  },
 });
 const isRefreshing = ref<boolean>(false);
 
@@ -23,15 +20,15 @@ function doRefresh() {
 }
 
 const close = async () => {
-  offlineReady.value = false
-  needRefresh.value = false
-}
+  offlineReady.value = false;
+  needRefresh.value = false;
+};
 </script>
 
 <script lang="ts">
 export default {
   name: 'ReloadPrompt',
-}
+};
 </script>
 
 <template lang="pug">

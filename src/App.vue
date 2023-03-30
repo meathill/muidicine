@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {ref} from "vue";
-import {useMedicineStore} from "@/store";
+import { ref } from 'vue';
+import { useMedicineStore } from '@/store';
 import ReloadPrompt from '@/components/reload-prompt.vue';
-import type {Medicine} from "@/types";
-import CurrentMedicine from "@/components/current-medicine.vue";
+import type { Medicine } from '@/types';
+import CurrentMedicine from '@/components/current-medicine.vue';
 
 const medicineStore = useMedicineStore();
 

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import {reactive, ref} from "vue";
-import {useRoute, useRouter} from "vue-router";
+import { reactive, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import AppHeader from '@/components/header.vue';
-import {MedicineTypeLabel, DosageUnitLabel, createNewMedicine} from "@/data";
-import type {Medicine} from "@/types";
-import {MedicineType} from '@/types';
-import {useMedicineStore} from "@/store";
-import ToggleSwitch from "@/components/toggle.vue";
-import {checkPermission} from "@/service/notification";
+import { MedicineTypeLabel, DosageUnitLabel, createNewMedicine } from '@/data';
+import type { Medicine } from '@/types';
+import { MedicineType } from '@/types';
+import { useMedicineStore } from '@/store';
+import ToggleSwitch from '@/components/toggle.vue';
+import { checkPermission } from '@/service/notification';
 
 function initMedicine(): Medicine {
   if (!route.params.id) return createNewMedicine();
@@ -39,14 +39,16 @@ async function doSubmit(event: Event) {
   const { meals } = medicine;
   const data: Medicine = {
     ...medicine,
-    meals: meals && meals.map((meal, index) => mealsStatus.value[index] ? meal : '')
+    meals: meals && meals.map((meal, index) => (mealsStatus.value[index] ? meal : '')),
   };
   medicineStore.save(data, route.params.id ? Number(route.params.id) : undefined);
   status.value = true;
   setTimeout(() => {
-    router.push({
-      name: 'list',
-    }).catch(console.log);
+    router
+      .push({
+        name: 'list',
+      })
+      .catch(console.log);
   }, 1500);
 }
 function onTypeChange() {
@@ -62,7 +64,7 @@ function onTypeChange() {
 <script lang="ts">
 export default {
   name: 'EditMedicine',
-}
+};
 </script>
 
 <template lang="pug">

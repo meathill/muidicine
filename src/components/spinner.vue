@@ -20,5 +20,5 @@ svg.animate-spin.h-4.w-4.mr-2(
 <script lang="ts">
 export default {
   name: 'SpinnerIcon',
-}
+};
 </script>

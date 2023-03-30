@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import {counter} from "@/data";
-import {ref, toRefs, watch} from "vue";
+import { counter } from '@/data';
+import { ref, toRefs, watch } from 'vue';
 
 type Props = {
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -9,9 +9,9 @@ type Props = {
   valueOff?: any;
   toggleId?: string;
   /* eslint-enable @typescript-eslint/no-explicit-any */
-}
+};
 const emit = defineEmits<{
-  (e:'update:modelValue', value:any):void; // eslint-disable-line @typescript-eslint/no-explicit-any
+  (e: 'update:modelValue', value: any): void; // eslint-disable-line @typescript-eslint/no-explicit-any
 }>();
 
 const props = withDefaults(defineProps<Props>(), {
@@ -19,23 +19,18 @@ const props = withDefaults(defineProps<Props>(), {
   valueOn: true,
   valueOff: false,
 });
-const {
-  modelValue,
-  valueOn,
-  valueOff,
-  toggleId,
-} = toRefs(props);
+const { modelValue, valueOn, valueOff, toggleId } = toRefs(props);
 
-watch(modelValue, (value) => {
+watch(modelValue, value => {
   localValue.value = value;
 });
 
 const localId = !toggleId && `switch-${counter.next()}`;
 const localValue = ref<boolean>(modelValue.value === valueOn.value);
 
-function onChange(event:Event) {
-  const {target} = event;
-  const {checked} = target as HTMLInputElement;
+function onChange(event: Event) {
+  const { target } = event;
+  const { checked } = target as HTMLInputElement;
   emit('update:modelValue', (checked ? valueOn : valueOff).value);
 }
 function reset() {
@@ -50,7 +45,7 @@ defineExpose({
 <script lang="ts">
 export default {
   name: 'ToggleSwitch',
-}
+};
 </script>
 
 <template lang="pug">
