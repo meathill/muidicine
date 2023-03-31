@@ -16,7 +16,9 @@ const emit = defineEmits<{
 const isOpen = ref<boolean>(false);
 const menuEl = ref<HTMLDivElement>();
 
-window.addEventListener('click', onBodyCLick);
+onMounted(() => {
+  window.addEventListener('click', onBodyCLick);
+});
 
 onBeforeUnmount(() => {
   window.removeEventListener('click', onBodyCLick);
