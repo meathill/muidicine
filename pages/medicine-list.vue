@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type {Medicine, Menu} from '@/types';
-import {MedicineType, MenuCommand} from '@/types';
+import type { Medicine, Menu } from '@/types';
+import { MedicineType, MenuCommand } from '@/types';
 import AppHeader from '@/components/header.vue';
-import {useMedicineStore} from "@/store";
+import { useMedicineStore } from '@/store';
 
 const medicineStore = useMedicineStore();
 

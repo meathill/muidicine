@@ -1,15 +1,15 @@
-import {DosageUnit, Medicine, MedicineType} from "@/types";
+import { DosageUnit, Medicine, MedicineType } from '@/types';
 
 export const MedicineTypeLabel = {
   [MedicineType.AfterMeal]: '餐后',
   [MedicineType.Timing]: '定时',
-}
+};
 
 export const DosageUnitLabel = {
   [DosageUnit.pill]: '片',
   [DosageUnit.ml]: '毫升',
   [DosageUnit.g]: '克',
-}
+};
 
 export function createNewMedicine(): Medicine {
   return {
@@ -34,4 +34,4 @@ export const counter = {
   next() {
     return _counter++;
   },
-}
+};

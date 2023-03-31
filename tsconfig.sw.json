@@ -8,7 +8,5 @@
     "outDir": "public",
     "target": "ESNext"
   },
-  "include": [
-    "sw",
-  ]
+  "include": ["sw"]
 }

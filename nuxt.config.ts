@@ -18,7 +18,6 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/icons/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icons/favicon-16x16.png' },
         { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css' },
-        { rel: 'manifest', href: '/manifest.webmanifest' }
       ],
     },
   },
@@ -101,6 +100,13 @@ export default defineNuxtConfig({
           purpose: 'any',
         },
       ],
+    },
+    workbox: {
+      navigateFallback: '/',
+    },
+    devOptions: {
+      enabled: true,
+      type: 'module',
     },
   },
 });

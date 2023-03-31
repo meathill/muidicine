@@ -1,10 +1,10 @@
-import {defineStore} from 'pinia';
-import {computed, ref} from "vue";
+import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
 import find from 'lodash/find';
-import {Medicine} from "@/types";
-import type {LocalStore} from "@/store/types";
-import {version} from '../package.json';
-import {diffMinutes} from "@/utils";
+import { Medicine } from '@/types';
+import type { LocalStore } from '@/store/types';
+import { version } from '../package.json';
+import { diffMinutes } from '@/utils';
 
 const STORE_KEY = 'mui-medicine';
 
@@ -17,12 +17,12 @@ let store: LocalStore;
 //   // TODO 将来要处理不同版本的存储数据结构
 //   store.version = version;
 // } else {
-  store = {
-    version,
-    medicines: {},
-    config: {},
-    lastId: 1,
-  };
+store = {
+  version,
+  medicines: {},
+  config: {},
+  lastId: 1,
+};
 // }
 
 export const useMedicineStore = defineStore('medicine', () => {
@@ -41,21 +41,21 @@ export const useMedicineStore = defineStore('medicine', () => {
     medicines.value[id] = data;
     store.medicines[id] = data;
     localStorage.setItem(STORE_KEY, JSON.stringify(store));
-  }
+  };
   const remove = (id: string) => {
     delete medicines.value[id];
     delete store.medicines[id];
     localStorage.setItem(STORE_KEY, JSON.stringify(store));
-  }
+  };
   const exportData = (): void => {
-    const blob = new Blob([JSON.stringify(store)], {type: 'application/json'});
+    const blob = new Blob([JSON.stringify(store)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
     a.download = 'mui-medicines.json';
     a.click();
     URL.revokeObjectURL(url);
-  }
+  };
   const importData = (): void => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -66,32 +66,32 @@ export const useMedicineStore = defineStore('medicine', () => {
         return;
       }
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         const result: string = reader.result as string;
         medicines.value = JSON.parse(result).medicines;
         localStorage.setItem(STORE_KEY, result);
-      }
+      };
       reader.readAsText(file);
-    }
+    };
     input.click();
-  }
+  };
   const getCurrentMedicine = (): Medicine | undefined => {
     const now = new Date();
     const hour = now.getHours();
     const minute = now.getMinutes();
     return find(medicines.value, (medicine: Medicine) => {
-      const {meals} = medicine;
+      const { meals } = medicine;
       if (!meals) {
         return false;
       }
       // 找出1.5小时内最后提醒的药
-      return !!meals.find((meal) => {
+      return !!meals.find(meal => {
         if (!meals) return false;
         const diff = diffMinutes(hour, minute, meal);
         return diff > 0 && diff < 90;
       });
     });
-  }
+  };
 
   return {
     medicines,
