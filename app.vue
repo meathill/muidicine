@@ -6,7 +6,7 @@ import type { Medicine } from '@/types';
 import CurrentMedicine from '@/components/current-medicine.vue';
 // import {registerServiceWorker} from './service/notification';
 
-let medicineStore = useMedicineStore();
+const medicineStore = useMedicineStore();
 
 const currentMedicine = ref<Medicine | undefined>();
 
