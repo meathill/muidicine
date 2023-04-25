@@ -10,29 +10,29 @@ const STORE_KEY = 'mui-medicine';
 
 let store: LocalStore;
 
-// TODO 在服务端环境中，没有localStorage，无法从localStorage中取出数据，从而初始化store，需要更改方案
-// const local = localStorage.getItem(STORE_KEY);
-// if (local) {
-//   store = JSON.parse(local);
-//   // TODO 将来要处理不同版本的存储数据结构
-//   store.version = version;
-// } else {
-store = {
-  version,
-  medicines: {},
-  config: {},
-  lastId: 1,
-};
-// }
-
 export const useMedicineStore = defineStore('medicine', () => {
-  const data = store.medicines;
-  const medicines = ref<Record<string, Medicine>>(data);
+  const medicines = ref<Record<string, Medicine>>({});
 
   const total = computed<number>(() => {
     return Object.values(medicines.value).length;
   });
 
+  const init = () => {
+    const local = localStorage.getItem(STORE_KEY);
+    if (local) {
+      store = JSON.parse(local);
+      // TODO 将来要处理不同版本的存储数据结构
+      store.version = version;
+    } else {
+      store = {
+        version,
+        medicines: {},
+        config: {},
+        lastId: 1,
+      };
+    }
+    medicines.value = store.medicines;
+  };
   const save = (data: Medicine, id?: number) => {
     if (!id) {
       id = store.lastId;
@@ -96,6 +96,7 @@ export const useMedicineStore = defineStore('medicine', () => {
   return {
     medicines,
     total,
+    init,
     save,
     remove,
     exportData,

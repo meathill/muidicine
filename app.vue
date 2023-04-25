@@ -10,6 +10,10 @@ const medicineStore = useMedicineStore();
 
 const currentMedicine = ref<Medicine | undefined>();
 
+onBeforeMount(() => {
+  medicineStore.init();
+});
+
 onMounted(() => {
   // registerServiceWorker();
   document.addEventListener('visibilitychange', () => {
