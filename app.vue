@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { initStore, useMedicineStore } from '@/store';
+import { useMedicineStore } from '@/store';
 import ReloadPrompt from '@/components/reload-prompt.vue';
 import type { Medicine } from '@/types';
 import CurrentMedicine from '@/components/current-medicine.vue';
-import { StoreDefinition } from 'pinia';
 // import {registerServiceWorker} from './service/notification';
 
-let medicineStore: StoreDefinition;
+let medicineStore = useMedicineStore();
 
 const currentMedicine = ref<Medicine | undefined>();
 
 onBeforeMount(() => {
-  initStore();
-  medicineStore = useMedicineStore();
+  medicineStore.init();
 });
 
 onMounted(() => {
